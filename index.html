@@ -5,8 +5,18 @@
     <button id="btnSubmit">Kirim Pesan ke Parent</button>
     <script>
         document.getElementById('btnSubmit').addEventListener('click', function() {
-            window.parent.postMessage("submit-berhasil", "*");
-            alert("Pesan terkirim!");
+            const allowedOrigins = [
+        "https://localhost",       // Android Production
+        "capacitor://localhost",   // iOS Production
+        "https://107d-sg-studio.teleows.com/adc-ui/spl-plus/test_ari/test_ari/asda",
+        "http://localhost:8100"    // Saat sedang didebug/development
+    ];
+
+    // Kirim pesan ke parent
+    // Kamu bisa menggunakan perulangan atau mengirim ke window.parent secara hati-hati
+    allowedOrigins.forEach(origin => {
+        window.parent.postMessage("submit-berhasil", origin);
+    });
         });
     </script>
 </body>
