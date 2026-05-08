@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h3>Halaman Child (GitHub)</h3>
+    <button id="btnSubmit">Kirim Pesan ke Parent</button>
+    <script>
+        document.getElementById('btnSubmit').addEventListener('click', function() {
+            window.parent.postMessage("submit-berhasil", "*");
+            alert("Pesan terkirim!");
+        });
+    </script>
+</body>
+</html>
