@@ -2,8 +2,13 @@
 <html>
 <body>
     <h3>Halaman Child (GitHub)</h3>
+    <input type="text" id="originField" readonly style="width: 100%; margin-bottom: 10px;">
     <button id="btnSubmit">Kirim Pesan ke Parent</button>
     <script>
+
+        var parentOrigin =  new URL(document.referrer).origin
+
+        document.getElementById('originField').value = parentOrigin;
         document.getElementById('btnSubmit').addEventListener('click', function() {
             const allowedOrigins = [
         "https://localhost",       // Android Production
